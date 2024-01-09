@@ -1,0 +1,367 @@
+
+:root {
+  --bs-font-sans-serif: "Rubik", sans-serif;
+}
+
+.container-xxl {
+  max-width: 1530px;
+}
+
+body {
+  background-image: url("/img/i-like-food.svg");
+  background-color: rgb(243, 243, 243);
+}
+
+a {
+  color: var(--bs-dark);
+}
+
+/* Category Card */
+.category__link {
+  text-align: center;
+  display: block;
+  text-decoration: none;
+  transition: 250ms all;
+}
+
+.category__link:hover {
+  transform: scale(1.1);
+}
+
+.category__img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  margin-bottom: 10px;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.category__img--large {
+  height: 330px;
+}
+
+.category__img img {
+  width: 100%;
+  object-fit: cover;
+}
+
+#main-content {
+  padding: 20px;
+  overflow-y: auto;
+  height: 100vh;
+}
+
+#wrapper {
+  display: flex;
+}
+
+#sidebar {
+  min-width: 250px;
+  max-width: 250px;
+  background: #233242;
+  color: #fff;
+  transition: all 0.3s;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+#sidebarCollapse {
+  border: none;
+}
+
+#content {
+  flex: 1;
+  transition: margin-left 0.3s;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+  height: auto;
+  margin-left: 205px; /* Adjust this margin to match your sidebar width */
+  /* overflow-y: auto; */
+}
+
+@media (max-width: 768px) {
+  #sidebar {
+    margin-left: -250px;
+  }
+
+  #sidebar.toggled {
+    margin-left: 0;
+    width: 200px;
+  }
+
+  #content {
+    margin-left: 0;
+  }
+
+  #sidebarCollapse {
+    position: fixed;
+    left: 10px;
+    top: 10px;
+    z-index: 2; /* Ensure it's above the content */
+  }
+  .p-4 {
+    margin-top: 40px;
+  }
+}
+/* sidebar styling */
+.sidebar-nav > .in {
+  list-style-type: none;
+  margin-top: 67px;
+}
+
+.sidebar-nav > .in li {
+  line-height: 30px;
+  padding: 12px 15px 12px 15px;
+}
+
+.sidebar-nav > .in li a {
+  color: white;
+  text-decoration: none;
+}
+
+#profile-container {
+  margin-top: 10px;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: white;
+}
+.profile_label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.profile_input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+}
+.welcome_intro {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.welcome_intro2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.welcome_intro2 .admin_info_box {
+  /* border: solid 1px black; */
+  padding: 10px 10px 10px 10px;
+  width: 250px;
+  height: 120px;
+
+  border-radius: 5px;
+  margin: 10px;
+  background-color: white;
+  box-shadow: 0px 10px 20px 2px rgb(235, 234, 234);
+}
+
+.welcome_intro2 .admin_info_box:nth-child(1) {
+  background-color: #3b76ef;
+}
+.welcome_intro2 .admin_info_box:nth-child(2) {
+  background-color: #63c7ff;
+}
+.welcome_intro2 .admin_info_box:nth-child(3) {
+  background-color: #a66dd4;
+}
+.welcome_intro2 .admin_info_box:nth-child(4) {
+  background-color: #ca4b5c;
+}
+
+.welcome_intro2 .admin_info_box h3 {
+  color: white;
+}
+.welcome_intro2 .admin_info_box h4 {
+  color: white;
+}
+
+@media screen and (max-width: 627px) {
+  .welcome_intro2 {
+    justify-content: center;
+  }
+}
+
+.messages {
+  padding: 8px 12px;
+}
+.messages li {
+  list-style-type: none;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.messages .info {
+  background-color: #93c5fd;
+}
+.messages .error {
+  background-color: #f87171;
+}
+.messages .success {
+  background-color: #6ee7b7;
+}
+.messages .warning {
+  background-color: #fcd34d;
+}
+
+table {
+  width: 100%;
+  border: solid 1px black;
+  text-align: center;
+  margin-top: 20px;
+}
+
+table td {
+  border: solid 1px black;
+  padding: 10px 0px 10px 0px;
+}
+
+.manage-user-form input[type="submit"] {
+  background: transparent;
+  color: #db2777;
+  border: none;
+  outline: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.manage-user-form input[type="submit"]:hover {
+  background-color: #fdf2f8;
+}
+
+.manage-user-form select {
+  border: none;
+  font-size: 1.05rem;
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 2px solid #f3f4f6;
+}
+
+thead tr th:first-child,
+tbody tr td:first-child {
+  width: 6em;
+  min-width: 6em;
+  max-width: 6em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0 8px;
+}
+
+.role-select {
+  width: 100px;
+  padding: 8px;
+  border-radius: 5px;
+}
+
+.user_chart {
+  padding: 10px;
+  background-color: white;
+  border-radius: 5px;
+}
+.subtitle {
+  font-weight: lighter;
+}
+
+.section1 {
+  display: flex;
+  justify-content: space-between;
+  height: 200px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.section1 div:nth-child(1) img {
+  object-fit: cover;
+  width: 150px;
+  height: 150px;
+  border-radius: 360px;
+}
+
+.section1 div:nth-child(2) p {
+  color: lightblue;
+}
+.section1 div:nth-child(2) span {
+  color: black;
+}
+.user_details {
+  margin-top: 30px;
+}
+.user_details1 {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.user_details1 input {
+  width: 500px;
+  border: solid 1px #ddd;
+  border-radius: 5px;
+}
+
+.user_select {
+  padding: 6px;
+}
+
+@media screen and (max-width: 878px) {
+  .welcome_intro2 .admin_info_box {
+    width: 249px;
+  }
+}
+@media screen and (max-width: 874px) {
+  .welcome_intro2 .admin_info_box {
+    width: 240px;
+  }
+}
+@media screen and (max-width: 857px) {
+  .welcome_intro2 .admin_info_box {
+    width: 229px;
+  }
+}
+@media screen and (max-width: 835px) {
+  .welcome_intro2 .admin_info_box {
+    width: 203px;
+  }
+}
+@media screen and (max-width: 533px) {
+  .welcome_intro2 .admin_info_box {
+    width: 203px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .section1 {
+    display: block;
+  }
+
+  .section1 div:nth-child(1) {
+    display: flex;
+    justify-content: center;
+  }
+
+  .section1 div:nth-child(2) {
+    /* height: 20px; */
+    text-align: center;
+  }
+}
+@media screen and (max-width: 910px) {
+  .user_details {
+    margin-top: 50px;
+  }
+  .user_details1 input {
+    max-width: 200px;
+    border: solid 1px #ddd;
+    border-radius: 5px;
+  }
+}
+
+.comment-list{
+  list-style-type: none;
+}

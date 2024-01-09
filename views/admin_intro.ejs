@@ -1,0 +1,104 @@
+<div class="welcome_intro">
+<p>Welcome <%= person.email %></p>
+<a href="/auth/logout"><p>Logout</p></a>
+</div>
+
+
+<div class="welcome_intro2">
+    <div class="admin_info_box">
+        <h4>Total Post</h4> <br>
+        <h3><%= recipesCount %></h3>
+    </div>
+    <div class="admin_info_box">
+        <h4>Total Categories</h4> <br>
+        <h3><%=CategoryCount %></h3>
+    </div>
+    <div class="admin_info_box">
+        <h4>Total Pending Post</h4> <br>
+        <h3><%=pending_post %></h3>
+    </div>
+    <div class="admin_info_box">
+        <h4>Total Users</h4> <br>
+        <h3><%=userCount %></h3>
+    </div>
+
+</div>
+<!-- 
+ <div style="width: 400px;">
+        <canvas id="myChart"></canvas>
+      </div> -->
+
+      <!-- <div class="user_chart">
+        <canvas id="userChart" width="400" height="200"></canvas>
+      </div>
+       -->
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      
+      <script>
+     // Access the count variable from the server-rendered HTML
+    const recipe = <%= recipesCount %>;
+    const Category = <%=CategoryCount %>
+
+    // Render the chart on the frontend using the count variable
+    // renderChart(recipe,Category);
+
+    // // Function to render the chart
+    // function renderChart(recipe,Category) {
+    //   const ctx = document.getElementById('myChart');
+      
+    //   new Chart(ctx, {
+    //     type: 'line',
+    //     data: {
+    //       labels: ['Post', 'Categories', 'Users', , 'Pending post'],
+    //       datasets: [{
+    //         label: '# of Votes',
+    //         data: [recipe, Category, userCount, pending_post],
+    //         borderWidth: 1
+    //       }]
+          
+    //     },
+        
+    //     options: {
+    //       scales: {
+    //         y: {
+    //           beginAtZero: true
+    //         }
+    //       }
+    //     }
+    //   });
+    // }
+
+    document.addEventListener('DOMContentLoaded', function () {
+    var ctx = document.getElementById('userChart').getContext('2d');
+    var months = [<% result.forEach(function (data) { %>'<%= data._id %>', <% }); %>];
+    var users = [<% result.forEach(function (data) { %><%= data.totalUsers %>, <% }); %>];
+    months.sort(function(a, b) {
+  return a - b;
+});
+console.log(months)
+    var myChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: months,
+        datasets: [{
+          label: 'Users per Month',
+          data: users,
+          backgroundColor: 'rgba(75, 192, 192, 0.2)',
+          borderColor: 'rgba(75, 192, 192, 1)',
+          borderWidth: 1,
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  });
+  </script>
+  
+      </script>
+
+  

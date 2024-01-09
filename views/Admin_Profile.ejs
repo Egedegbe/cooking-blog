@@ -1,0 +1,32 @@
+<div id="profile-container">
+  <div class="section1">
+    <div>
+    <img src="/img/admin.jpg" alt="">
+    </div>
+    <div>
+      <h3><%= person.name %></h3>
+      <p><%= person.email %> - <span><%= person.role %></span></p>
+    </div>
+  </div>
+
+  <!-- <h5 style="margin-top: 30px;">Account</h5> -->
+
+  <div class="user_details">
+    <div class="user_details1">
+      <p>ID:</p>
+      <input type="text" value="<%= person._id %>" readonly/>
+    </div>
+    <div class="user_details1">
+      <p>Username:</p>
+      <input type="text" value="<%= person.name %>" readonly />
+    </div>
+    <div class="user_details1">
+      <p>Email:</p>
+      <input type="text" value="<%= person.email %>" readonly />
+    </div>
+    <div class="user_details1">
+      <p>Role:</p>
+      <input type="text" value="<%= person.role %>" readonly />
+    </div>
+  </div> 
+</div>

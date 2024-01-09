@@ -1,0 +1,35 @@
+<h1><span class="goback" onclick="window.history.back()">back</span>Profile</h1>
+<div class="profile">
+  <div>
+    <p class="title">ID</p>
+    <p class="subtitle"><%= person.id %></p>
+  </div>
+  <div>
+    <p class="title">Email/Username</p>
+    <p class="subtitle"><%= person.email %></p>
+  </div>
+  <div>
+    <p class="title">Role</p>
+    <p class="subtitle"><%= person.role %></p>
+  </div>
+  <!-- <p class="title">User object</p>
+  <pre class="subtitle"><%= person%></pre> -->
+</div>
+
+<h4>All My Recipes</h4>
+<div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+  <% if(food != '') { %> <% food.forEach(function(recipe){ %>
+  <a href="/recipe/<%= recipe._id %>" class="col text-center category__link">
+    <div class="category__img category__img--large shadow">
+      <img
+        src="/uploads/<%= recipe.image %>"
+        alt="<%= recipe.name %>"
+        loading="lazy"
+      />
+    </div>
+    <div class="pt-1"><%= recipe.name %></div>
+  </a>
+  <% }) %> <% } else { %>
+  <p>No items found.</p>
+  <% } %>
+</div>

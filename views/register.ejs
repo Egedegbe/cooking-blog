@@ -1,0 +1,47 @@
+<h1>Register</h1>
+<%- include('./layouts/flash-message') %>
+  
+<form action="/auth/register" method="post" class="lg-form">
+  <div class="row g-3">
+    <div class="col-12">
+      <label for="name" class="form-label">Username</label>
+      <input type="text" name="name" id="name" class="form-control" value="" />
+    </div>
+    <div class="col-12">
+      <label for="email" class="form-label">Email</label>
+      <input type="text" name="email" id="email" class="form-control" value="<%=locals.email ? email:''%>" />
+    </div>
+
+    <div class="col-12">
+      <label for="password" class="form-label">Password</label>
+      <input
+        type="password"
+        name="password"
+        id="password"
+        class="form-control"
+        
+      />
+    </div>
+    <div class="col-12">
+      <label for="password" class="form-label">Confirm Password</label>
+      <input
+        type="password"
+        name="password2"
+        id="password2"
+        class="form-control"
+        
+      />
+    </div>
+
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary">Register</button>
+    </div>
+  
+  </div>
+</form>
+
+<div>
+  <p>
+   Already have an account? <span><a href="/auth/login">Login</a></span>
+  </p>
+</div>

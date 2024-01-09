@@ -1,0 +1,120 @@
+<%- include('./layouts/flash-message') %> <% if(recipe != null ) { %>
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">
+      <%- recipe.name %>
+    </li>
+  </ol>
+  <% if (user && user._id.equals(recipe.userId)) { %>
+  <div style="display: flex; justify-content: end">
+    <a href="/auth/edit_recipe/<%-recipe._id%>" class="edit"
+      ><i class="fa fa-pencil" aria-hidden="true" style="color: #063146"></i>
+      Edit Recipe</a
+    >
+    <form
+      action="/auth/deleteRecipe/<%=recipe._id%>?_method=DELETE"
+      method="POST"
+    >
+      <i class="fa fa-trash" aria-hidden="true" style="color: #063146"></i>
+      <button
+        type="submit"
+        style="
+          border: none;
+          background-color: transparent;
+          text-decoration: underline solid 1px #212529;
+        "
+      >
+        Delete Recipe
+      </button>
+    </form>
+  </div>
+  <% } %>
+</nav>
+
+<div class="row">
+  <div class="col-12 col-md-4">
+    <img
+      src="/uploads/<%- recipe.image %>"
+      class="img-fluid sticky-top"
+      style="top: 20px"
+      alt="<%- recipe.name %>"
+      loading="lazy"
+    />
+  </div>
+
+  <div class="col-12 col-md-8">
+    <div class="row pt-4">
+      <div class="col-12">
+        <div class="col-12"><h2><%- recipe.title %></h2></div>
+        <div class="col-12 mb-4">
+          <i class="bi bi-tag"></i> <%- recipe.category %>
+        </div>
+
+        <div class="row">
+          <div class="col-12" style="white-space: pre-line">
+            <h4><%- recipe.name %></h4>
+            <%- recipe.description %>
+          </div>
+        </div>
+
+        <h4 style="margin-top: 10px">Ingredients</h4>
+        <ul class="list-group list-group-flush">
+          <% recipe.ingredients.forEach(function(ingredients, index){ %>
+          <li class="list-group-item"><%= ingredients %></li>
+          <% }) %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<% } else { %>
+<p>No item found.</p>
+<% } %>
+
+<h4 style="margin-top: 10px">Steps to Prepare</h4>
+<div class="row">
+  <div class="col-12" style="white-space: pre-line; text-align: justify">
+    <%- recipe.steps %>
+  </div>
+</div>
+
+<h4 style="margin-top: 20px"><span><%= CommentCount %></span> Comments</h4>
+
+<form action="/auth/comments" method="POST">
+  <input type="hidden" name="recipeID" value="<%-recipe._id%>" />
+  <label for="commentText">Submit a Comment</label><br />
+  <textarea
+    name="commentText"
+    id="commentText"
+    rows="4"
+    cols="50"
+    required
+  ></textarea>
+  <br />
+  <div class="col-12">
+    <button type="submit" class="btn btn-primary">Add a Comment</button>
+  </div>
+</form>
+
+<!-- <div style="margin-top: 20px">
+  <h5></h5>
+  <p class="subtitle"></p>
+</div> -->
+
+<ul class="comment-list">
+  <% if (Comments.length > 0) { %>
+    <% Comments.forEach(comment => { %>
+      <li class="comment">
+        <div class="comment-body">
+          <h3><%= comment.author %></h3>
+          <!-- <div class="meta mb-3">November 13, 2019 at 2:21pm</div> -->
+          <p class="subtitle"><%= comment.commentText %></p>
+        </div>
+      </li> 
+    <% }) %>
+  <% } else { %>
+    <p>No Comments</p>
+  <% } %>
+</ul>

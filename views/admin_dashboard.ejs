@@ -1,0 +1,72 @@
+
+<div id="wrapper">
+
+    <!-- Sidebar -->
+    <div id="sidebar">
+      <div class="p-4">
+        <!-- <h2>Sidebar</h2> -->
+        <h4 style="margin-left: 27px;">Cooking Blog </h4>
+      </div>
+      <nav class="sidebar-nav">
+        <ul id="sidebarnav" class="in">
+          <li class="sidebar-item selected">
+            <a class="sidebar-link waves-effect waves-dark sidebar-link active" href="/admin/admin_dashboard" aria-expanded="false">
+                <i class="bi bi-speedometer2"></i>
+              <span class="hide-menu">Dashboard</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/admin/Admin_Profile" aria-expanded="false">
+                <i class="bi bi-person-fill"></i>
+              <span class="hide-menu">Profile</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/admin/users" aria-expanded="false">
+              <i class="bi bi-people-fill"></i> 
+              <span class="hide-menu">Users</span>
+            </a>
+          </li>
+         
+          <li class="sidebar-item">
+            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/admin/admin_category" aria-expanded="false">
+                <i class="bi bi-box"></i>
+              <span class="hide-menu">Categories</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/admin/pending-post" aria-expanded="false">
+              <i class="bi bi-file-post"></i>
+              <span class="hide-menu">Pending Post</span>
+            </a>
+          </li>
+        
+      </nav>
+    </div>
+
+    <!-- Page Content -->
+    <div id="content">
+      <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light"> -->
+        <div class="container-fluid">
+
+          <button type="button" id="sidebarCollapse" >
+            <i class="bi bi-list"></i>
+          </button>
+
+        <!-- </div> -->
+      </nav>
+      <div class="container-fluid">
+        <%- include(mainContent) %>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    const sidebar = document.getElementById('sidebar');
+    const sidebarCollapseBtn = document.getElementById('sidebarCollapse');
+
+    sidebarCollapseBtn.addEventListener('click', () => {
+      sidebar.classList.toggle('toggled');
+    });
+  </script>
