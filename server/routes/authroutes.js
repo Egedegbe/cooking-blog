@@ -13,7 +13,7 @@ router.get(
   "/login",
   connectEnsure.ensureLoggedOut({ redirectTo: "/" }),
   async (req, res) => {
-    res.render("Login", { title: "Login" });
+    res.render("login", { title: "login" });
   }
 );
 router.post(
